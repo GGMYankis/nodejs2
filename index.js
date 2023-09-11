@@ -35,10 +35,10 @@ function server() {
           throw new Error("Token invalido");
         }
       }
-    },
+    },   
   });
 
   configServer.listen({port: process.env.PORT || 4000}).then(({ url }) => {
     console.log("Graghql in port : " + url );
-  });
+  });  
 }
