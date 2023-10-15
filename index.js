@@ -17,6 +17,7 @@ mongoose
   .catch((error) => {
     console.log("Error de conexion :" + error);
   });
+// ...
 
 function server() {
   const configServer = new ApolloServer({
@@ -35,10 +36,14 @@ function server() {
           throw new Error("Token invalido");
         }
       }
-    },   
+    },
   });
 
-  configServer.listen({port: process.env.PORT || 4000}).then(({ url }) => {
-    console.log("Graghql in port : " + url );
-  });  
+
+
+  
+
+  configServer.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+    console.log("Graghql in port : " + url);
+  });
 }

@@ -5,9 +5,12 @@ const LikeController = require("../controllers/like");
 
 const resolver = {
   Query: {
+    
     // User
     getUser: (_, { id, username }) => userController.getUser(id, username),
     countUser:(_,{}, ctx) => userController.countUser(ctx),
+
+
     getPublication: (_, { username }) =>
       PublicationController.getPublication(username),
     allPublication: () => PublicationController.allPublication(),
@@ -31,8 +34,7 @@ const resolver = {
     loginUser: (_, { input }) => userController.loginUser(input),
 
     //PUBLICACIONES DE IMAGENES
-    publish: (_, { file, typeImg, price, name }, ctx) =>
-      PublicationController.publish(file, typeImg, price, name, ctx),
+   
     deletePublication: (_, { idPublication }, ctx) =>
       PublicationController.deletePublication(idPublication, ctx),
 
@@ -40,11 +42,12 @@ const resolver = {
     addComment: (_, { input }, ctx) => CommentController.addComment(input, ctx),
 
     //AGREGANDO LOS LIKE
-
     addLike: (_, { idPublication }, ctx) =>
       LikeController.addLike(idPublication, ctx),
     deleteLike: (_, { idPublication }, ctx) =>
       LikeController.deleteLike(idPublication, ctx),
+
+     
   },
 };
 

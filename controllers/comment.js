@@ -2,6 +2,8 @@
 const Comment = require("../models/comment");
 
 async function addComment (input , ctx){
+  console.log(input)
+  console.log(ctx)
  
 try {
     const comment =  new Comment({

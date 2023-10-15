@@ -7,6 +7,8 @@ const User = require('../models/user');
 async function publish(file,typeImg , price , name , ctx) {
   const { id } = ctx.user;
   const { createReadStream, mimetype } = await file;
+
+  console.log(file)
   
 
   const extension = mimetype.split("/")[1];
@@ -15,8 +17,7 @@ async function publish(file,typeImg , price , name , ctx) {
 
    try {
     const result = await awsUploadImage(fileData, fileName);
-
-   
+    
     const publicationSave  = new Publication({
       idUser:id,
       file:result,
@@ -50,7 +51,6 @@ async function getPublication(username){
   return publication;
 }
 
-
 async function deletePublication(idPublication , ctx){
     
 try {
@@ -67,8 +67,6 @@ async function allPublication(){
     const publications = await Publication.find().populate("idUser");
     return publications
 }
-
-
 
 async function getPublicationForMan(category){
    const publications = await Publication.find({typeImg:category});

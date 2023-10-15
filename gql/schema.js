@@ -60,10 +60,12 @@ const typeDefs = gql`
     name:String
     typeImg:String
   }
+  
   type UpdateAvatar {
     status: Boolean
     urlAvatar: String
   }
+
   type Query {
    
      #Users
